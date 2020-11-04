@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { getBoards, getBoard } from './thulloApi';
+import { getBoards, getBoard } from './api/thulloApi';
+import App from './App';
 
 getBoards()
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
