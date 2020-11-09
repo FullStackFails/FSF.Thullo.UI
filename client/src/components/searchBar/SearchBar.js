@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
+import Button from '../button/Button';
 
 const SearchBar = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -12,14 +13,12 @@ const SearchBar = (props) => {
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
         placeholder={props.placeholder} />
-      <button
-        className={styles.searchButton}
+      <Button
         // NOTE: onClick evt handler below will get replaced 
         // in the future with a propTypes callback function
         onClick={() => { console.log(searchTerm) }}
-      >
-        {props.btnText}
-      </button>
+        btnText={props.btnText}
+      />
     </div>
   );
 }

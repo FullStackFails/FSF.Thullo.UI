@@ -1,1 +1,20 @@
+/* This is a good place to put some of our CSS
+* set up styling along with universal styles
+*/
 
+@import-normalize;
+
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
