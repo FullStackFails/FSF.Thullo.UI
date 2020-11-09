@@ -6,7 +6,7 @@ test('renders correct button text', () => {
   const onClickCallback = jest.fn();
   const buttonText = 'btnText';
 
-  render(<Button onClick={onClickCallback} btnText={buttonText} />);
+  render(<Button onClick={onClickCallback} label={buttonText} />);
 
   expect(screen.getByText(buttonText)).toBeInTheDocument();
 });
@@ -15,7 +15,7 @@ test('calls the onClick prop when clicked', () => {
   const onClickCallback = jest.fn();
   const buttonText = 'btnText';
 
-  render(<Button onClick={onClickCallback} btnText={buttonText} />);
+  render(<Button onClick={onClickCallback} label={buttonText} />);
 
   fireEvent.click(screen.getByText(buttonText));
 

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './SearchBar.module.css';
+import SearchInput from '../searchInput/SearchInput';
 import Button from '../button/Button';
 
 const SearchBar = (props) => {
@@ -7,20 +9,29 @@ const SearchBar = (props) => {
 
   return (
     <div className={styles.searchBarContainer}>
-      <input
-        type="search"
-        className={styles.searchTerm}
-        value={searchTerm}
-        onChange={e => setSearchTerm(e.target.value)}
-        placeholder={props.placeholder} />
+      <div className={styles.searchTerm}>
+        <SearchInput
+          onChange={setSearchTerm}
+          placeholder="Keyword..." />
+      </div>
       <Button
-        // NOTE: onClick evt handler below will get replaced 
-        // in the future with a propTypes callback function
-        onClick={() => { console.log(searchTerm) }}
-        btnText={props.btnText}
+        primary={true}
+        onClick={() => props.onClick(searchTerm)}
+        label={props.label}
       />
     </div>
   );
-}
+};
+
+SearchBar.propTypes = {
+  primary: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  primary: true,
+  onClick: undefined,
+};
 
 export default SearchBar;

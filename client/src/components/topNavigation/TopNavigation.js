@@ -15,7 +15,7 @@ const TopNavigation = (props) => {
           </a>
         </li>
         <li>
-          <SearchBar placeholder='Keyword...' btnText='Search' />
+          <SearchBar placeholder='Keyword...' label='Search' />
         </li>
         <li>
           <ProfileDropDown />

@@ -11,7 +11,7 @@ test('search input starts with correct placeholder text', () => {
     <SearchBar
       onClick={onClick}
       placeholder={placeholder}
-      btnText={btnText}
+      label={btnText}
     />
   );
 
