@@ -1,0 +1,23 @@
+.allBoardContainer {
+  max-width: 1070px;
+  margin: 60px auto 0 auto;
+}
+
+.boardsViewHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.boardsViewHeader > p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.boardsViewContentContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px;
+}
