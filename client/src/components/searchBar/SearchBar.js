@@ -1,27 +1,37 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './SearchBar.module.css';
+import SearchInput from '../searchInput/SearchInput';
+import Button from '../button/Button';
 
 const SearchBar = (props) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <div className={styles.searchBarContainer}>
-      <input
-        type="search"
-        className={styles.searchTerm}
-        value={searchTerm}
-        onChange={e => setSearchTerm(e.target.value)}
-        placeholder={props.placeholder} />
-      <button
-        className={styles.searchButton}
-        // NOTE: onClick evt handler below will get replaced 
-        // in the future with a propTypes callback function
-        onClick={() => { console.log(searchTerm) }}
-      >
-        {props.btnText}
-      </button>
+      <div className={styles.searchTerm}>
+        <SearchInput
+          onChange={setSearchTerm}
+          placeholder="Keyword..." />
+      </div>
+      <Button
+        primary={true}
+        onClick={() => props.onClick(searchTerm)}
+        label={props.label}
+      />
     </div>
   );
-}
+};
+
+SearchBar.propTypes = {
+  primary: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  primary: true,
+  onClick: undefined,
+};
 
 export default SearchBar;

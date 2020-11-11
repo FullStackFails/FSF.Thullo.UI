@@ -1,22 +1,27 @@
 import React from 'react';
+import styles from './TopNavigation.module.css';
+import ThulloLogo from '../../Logo-small.svg';
 import SearchBar from '../searchBar/SearchBar';
 import ProfileDropDown from '../profileDropDown/ProfileDropDown';
-import ThulloLogo from '../../Logo-small.svg';
-import styles from './TopNavigation.module.css';
+import HomeLogo from '../homeLogo/HomeLogo';
 
 const TopNavigation = (props) => {
   return (
-    <div className={styles.topNavigationContainer}>
-      <div className={styles.homeIconContainer}>
-        <img src={ThulloLogo} alt='Thullo Icon' />
-        <span className={styles.homeIconText}>Thullo</span>
-      </div>
-      <SearchBar
-        placeholder='Keyword...'
-        btnText='Search'
-      />
-      <ProfileDropDown />
-    </div>
+    <nav className={styles.siteNav}>
+      <ul className={styles.siteNavContainer}>
+        <li className={styles.navLeft}>
+          <a href='/'>
+            <HomeLogo logo={ThulloLogo} homeLogoText="Thullo" />
+          </a>
+        </li>
+        <li>
+          <SearchBar placeholder='Keyword...' label='Search' />
+        </li>
+        <li>
+          <ProfileDropDown />
+        </li>
+      </ul>
+    </nav>
   );
 }
 

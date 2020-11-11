@@ -1,18 +1,24 @@
-.topNavigationContainer {
-  display: flex;
-  justify-content: space-between;
+.siteNav {
+  padding: 24px;
+  background-color: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
 
-.homeIconContainer {
+.siteNavContainer {
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  list-style-type: none;
 }
 
-.homeIconText {
-  padding-left: 12px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 27px;
-  text-align: center;
+.siteNavContainer > li > a {
+  text-decoration: none;
+  color: #000;
+}
+
+.siteNavContainer > li:last-child {
+  margin-left: 44px;
+}
+
+.siteNavContainer > .navLeft {
+  margin-right: auto;
 }

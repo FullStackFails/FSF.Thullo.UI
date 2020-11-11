@@ -1,0 +1,17 @@
+.buttonPrimary {
+  width: 74px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #2f80ed;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.buttonSecondary {
+  
+}
