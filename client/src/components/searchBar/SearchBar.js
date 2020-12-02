@@ -15,7 +15,6 @@ const SearchBar = (props) => {
           placeholder="Keyword..." />
       </div>
       <Button
-        primary={true}
         onClick={() => props.onClick(searchTerm)}
         label={props.label}
       />

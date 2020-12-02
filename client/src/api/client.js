@@ -7,3 +7,10 @@ export function get(url, parameters, config) {
 
   return axios.get(expandedUrl, config);
 }
+
+export function post(url, parameters, data, config) {
+  var template = parser.parse(url);
+  var expandedUrl = template.expand(parameters);
+
+  return axios.post(expandedUrl, data, config);
+}

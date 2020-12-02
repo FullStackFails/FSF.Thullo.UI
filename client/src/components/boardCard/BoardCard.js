@@ -9,13 +9,13 @@ const BoardCard = (props) => {
     let userCount = 0;
 
     for (let i = 0; i < 3 && i < props.users.length; i++) {
-      userListRendering.push(<li><UserIcon {...props.users[i]} /></li>);
+      userListRendering.push(<li key={props.users[i].id}><UserIcon {...props.users[i]} /></li>);
       userCount += 1;
     }
 
     if (userCount < (props.users.length)) {
       const extraUserCount = props.users.length - userCount;
-      userListRendering.push(<li>+ {extraUserCount} others</li>);
+      userListRendering.push(<li key={props.users.length}>+ {extraUserCount} others</li>);
     }
 
     return userListRendering;

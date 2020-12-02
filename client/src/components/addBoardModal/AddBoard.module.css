@@ -1,0 +1,26 @@
+.boardImage {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.container {
+  padding: 24px 24px 24px 24px;
+  width: 100%;
+  height: 100%;
+}
+
+.buttonGroup {
+  padding: 10px 0px 0px 0px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttonGroupBottom {
+  bottom: 24px;
+  right: 24px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+}
