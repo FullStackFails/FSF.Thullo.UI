@@ -1,12 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Select from 'react-select';
+import {logout} from '../../authorization/authService';
 
 const ProfileDropDown = (props) => {
+  const options = [
+    { value: "account", label: "Account"},
+    { value: "logout", label: "Logout"},
+  ]
+  
+  const [selected, setSelected] = useState(options[0])
+  
+  const handleChange = (selectedOption) => {
+    console.log(selectedOption)
+    setSelected(selectedOption);
+    if (selectedOption.value === "logout")
+      logout();
+  }
+
   return (
     <div>
-      <select name='profileDropDown' id='profileDropDown'>
-        <option value="account">Account</option>
-        <option value="logout">Logout</option>
-      </select>
+      <Select
+        name='profileDropDown'
+        id='profileDropDown'
+        value={selected}
+        options={options}
+        onChange={(selected) => handleChange(selected)}
+      />
     </div>
   );
 }
