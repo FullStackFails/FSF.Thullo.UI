@@ -7,22 +7,21 @@ const Logout = () => {
 
   useEffect(() => {
     async function isLoggedIn() {
-      await isUserLoggedIn().then(resp => {
+      await isUserLoggedIn().then(async resp => {
         setIsLoggedOn(resp);
-        if (resp)
-          logout();
+        if (resp) {
+          await logout().then(
+            logoutResp => {
+              setIsLoggedOn(logoutResp)
+            });
+        }
       })
     }
     isLoggedIn();
   }, [])
 
   return (
-    <>
-       {
-         isLoggedOn &&
-          <Redirect to="/" />
-       }
-    </>
+    <Redirect to="/" />
   )
 }
 

@@ -29,7 +29,7 @@ export function login() {
 
 export function logout() {
   // Need to remove Access token as default header for axios here
-  userManager.signoutRedirect();
+  return userManager.signoutRedirect().then(() => true).catch(() => false);
 }
 
 export async function redirectCallBack() {

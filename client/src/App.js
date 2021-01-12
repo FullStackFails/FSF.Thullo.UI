@@ -24,6 +24,9 @@ const SecuredRoutes = () => {
       <Route path="/boards">
           <Boards />
       </Route>
+      <Route path="/logout">
+          <Logout />
+      </Route>
     </>
   )
 }
@@ -74,11 +77,8 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/logout">
-          <Logout />
-        </Route>
         <Route path="/">
-          <Home />
+          <Home actions={{setIsLoggedOn}}/>
         </Route>
       </Switch>
     </div>
