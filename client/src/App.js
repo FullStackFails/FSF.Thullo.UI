@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-// import TopNavigation from './components/topNavigation/TopNavigation';
-// import AllBoards from './components/allBoards/AllBoards';
-// import { boardsTestData } from './test/exampleData/exampleData';
-import Boards from './views/boards';
+
 import {isUserLoggedIn} from './authorization/authService';
 
 import Home from './views/home';
@@ -21,9 +18,6 @@ import {
 const SecuredRoutes = () => {
   return (
     <>
-      <Route path="/boards">
-          <Boards />
-      </Route>
       <Route path="/logout">
           <Logout />
       </Route>
@@ -31,15 +25,18 @@ const SecuredRoutes = () => {
   )
 }
 
+const UnSecuredLinks = () => {
+  return (
+    <>
+      <Link to="/login">Login</Link>
+    </>
+  )
+}
+
 const SecuredLinks = () => {
   return (
     <>
-      <li>
-        <Link to="/boards">Boards</Link>
-      </li>
-      <li>
-        <Link to="/logout">Logout</Link>
-      </li>
+      <Link to="/logout">Logout</Link>
     </>
   )
 }
@@ -59,16 +56,10 @@ function App() {
     <Router>
     <div>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          {isLoggedOn && <SecuredLinks />}
-        </ul>
+        <Link to="/">Home</Link>
+        {isLoggedOn ? <SecuredLinks /> : <UnSecuredLinks />}
       </nav>
 
-      {/* A <Switch> looks through its children <Route>s and
-          renders the first one that matches the current URL. */}
       <Switch>
         {isLoggedOn && <SecuredRoutes />}
         <Route path="/callback">
@@ -83,10 +74,6 @@ function App() {
       </Switch>
     </div>
   </Router>
-    // <React.Fragment>
-    //   <TopNavigation />
-    //   <AllBoards boards={boardsTestData} />
-    // </React.Fragment>
   );
 }
 

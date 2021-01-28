@@ -16,18 +16,6 @@ const Home = ({actions}) => {
 
   return (
     <div>
-      <h2>Home</h2>
-      {
-        isLoggedOn
-          ? <>
-              <p>The User is logged in.</p>
-              <Link to="/logout">Logout</Link>  
-            </>
-          : <>
-              <p>The User is NOT logged in.</p>
-              <Link to="/login">Login</Link>
-            </>
-      }
     </div>
   );
 }
