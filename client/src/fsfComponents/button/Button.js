@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Button.module.css';
 
-const Button = ({type, onClick, children}) => {
+const Button = ({type, onClick, children, ...others}) => {
   let buttonStyle;
   switch (type) {
     case "primary":
