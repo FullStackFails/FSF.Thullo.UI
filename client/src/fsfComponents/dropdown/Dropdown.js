@@ -2,30 +2,36 @@ import React, { useState } from 'react';
 import caret from './caret-down.svg';
 import styles from './Dropdown.module.css';
 
-const Dropdown = ({header, options, ...others}) => {
+const Dropdown = ({header, options, disabled, ...others}) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <>
-    <div className={styles.headerContainer}>
-      <div className={styles.header}>
-        {header}
-      </div>
-      <div className={styles.dropdownCaret} onClick={() => setIsOpen(!isOpen)}>
-        <img src={caret} alt="caret-down"/>
-      </div>
-    </div>
+  const disabledClass = disabled ? styles.disabled : "";
+  console.log(disabledClass)
 
-    { isOpen &&
-      <div className={styles.options}>
-        {options.map(o => 
-          <div id={o.value} onClick={o.onClick} className={styles.option}>
-            {o.label}  
-          </div>
-        )}
+  return (
+    <div style={{width: '200px'}}>
+      <div
+        className={`${styles.headerContainer} ${disabledClass}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <div className={styles.header}>
+          {header}
+        </div>
+        <div className={styles.dropdownCaret} >
+          <img src={caret} alt="caret-down"/>
+        </div>
       </div>
-    }
-    </>
+
+      { isOpen && !disabled &&
+        <div className={styles.options}>
+          {options.map(o => 
+            <div id={o.value} onClick={o.onClick} className={styles.option}>
+              {o.label}  
+            </div>
+          )}
+        </div>
+      }
+    </div>
   )
 }
 

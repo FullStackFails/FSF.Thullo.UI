@@ -1,28 +1,22 @@
 .fsfButton {
-  min-width: 64px;
-  max-width: 152px;
-  height: 40px;
-  padding: 8px 8px 8px 8px;
-
-  border-radius: 8px;
+  border-radius: 4px;
   border-style: solid;
   border-width: 1px;
+
+  max-width: 120px;
 
   font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 12px;
+  line-height: 12px;
   text-align: center;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
 
-.fsfButton:hover {
-  background-color: #9b9b9b;
-  border-color: #9b9b9b;
-  color: #FFFFFF;
+
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
 }
 
 .fsfButton:focus {
@@ -30,22 +24,81 @@
 }
 
 .primary {
-  background-color: #2d81af;
-  border-color: #2d81af;
+  background-color: #20556B;
+  border-color: #20556B;
   
-  color: #ECECEC;
+  color: #F1F1F1;
+}
+
+.primary:hover {
+  background-color: #FFFFFF;
+  border-color: #20556B;
+  
+  color: #20556B;
+}
+
+.primary:disabled {
+  background-color: #86A5B1;
+  border-color: #86A5B1;
+  
+  color: #F1F1F1;
+}
+
+.danger {
+  background-color: #DE3E2F;
+  border-color: #DE3E2F;
+
+  color: #F1F1F1;
+}
+
+.danger:hover {
+  background-color: #FFFFFF;
+  border-color: #DE3E2F;
+  
+  color: #DE3E2F;
+}
+
+.danger:disabled {
+  background-color: #E39F99;
+  border-color: #E39F99;
+  
+  color: #F1F1F1;
 }
 
 .info {
   background-color: #FFFFFF;
-  border-color: #4b4b4b;
+  border-color: #BBBBBB;
 
-  color: #4b4b4b;
+  color: #444444;
 }
 
-.danger {
-  background-color: #B4472F;
-  border-color: #B4472F;
+.info:hover {
+  background-color: #999999;
+  border-color: #999999;
+  
+  color: #F1F1F1;
+}
 
-  color: #ECECEC;
+.info:disabled {
+  background-color: #F1F1F1;
+  border-color: #BBBBBB;
+  
+  color: #BBBBBB;
+}
+
+.small {
+  min-width: 40px;
+  padding: 6px 8px 6px 8px;
+}
+
+.medium {
+  min-width: 40px;
+  padding: 10px 8px 10px 8px;
+  /* height: 32px; */
+}
+
+.large {
+  min-width: 48px;
+  padding: 14px 8px 14px 8px;
+  /* height: 40px; */
 }
