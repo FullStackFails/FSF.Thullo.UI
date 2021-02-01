@@ -3,20 +3,17 @@ import caret from './caret-down.svg';
 import styles from './Dropdown.module.css';
 
 const Dropdown = ({header, options, disabled, ...others}) => {
-  const node = useRef();
-
+  const node = useRef();  // Used for outside click handling
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = e => {
+  const handleClick = e => {  // Handles outside clicks
     if (node.current.contains(e.target)) {
-      // inside click
       return;
     }
-    // outside click
     setIsOpen(false);
   };
 
-  useEffect(() => {
+  useEffect(() => { // Event listener for outside clicks
     document.addEventListener("mousedown", handleClick);
 
     return () => {
@@ -28,7 +25,8 @@ const Dropdown = ({header, options, disabled, ...others}) => {
   console.log(disabledClass)
 
   return (
-    <div style={{width: '200px'}} ref={node}>
+    // Ref for outside clicks
+    <div style={{width: '200px'}} ref={node}> 
       <div
         className={`${styles.headerContainer} ${disabledClass}`}
         onClick={() => setIsOpen(!isOpen)}
