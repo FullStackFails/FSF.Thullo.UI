@@ -8,11 +8,13 @@ import Callback from './authorization/callback';
 import Login from './authorization/login'
 import Logout from './authorization/logout'
 
+import Button from './fsfComponents/button/Button';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
 
 const SecuredRoutes = () => {
@@ -28,15 +30,22 @@ const SecuredRoutes = () => {
 const UnSecuredLinks = () => {
   return (
     <>
-      <Link to="/login">Login</Link>
+      <Link to="/login">
+        <Button>Login</Button>
+      </Link>
+      <Link to="/">
+        <Button type="primary">Register</Button>
+      </Link>
     </>
   )
 }
 
-const SecuredLinks = () => {
+const SecuredLinks = ({history}) => {
   return (
     <>
-      <Link to="/logout">Logout</Link>
+      <Link to="/logout">
+        <Button>Logout</Button>
+      </Link>
     </>
   )
 }
@@ -56,7 +65,9 @@ function App() {
     <Router>
     <div>
       <nav>
-        <Link to="/">Home</Link>
+        {/* <Link to="/">
+          <Button type="primary">Home</Button>
+        </Link> */}
         {isLoggedOn ? <SecuredLinks /> : <UnSecuredLinks />}
       </nav>
 
