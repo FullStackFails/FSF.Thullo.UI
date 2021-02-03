@@ -1,0 +1,130 @@
+/* HEADER */
+.selectContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 200px;
+  max-width: 200px;
+  width: 200px;
+
+  background: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #BBBBBB;
+  border-radius: 4px;
+
+  color: #444444;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.selectContainer:hover {
+  background-color: #999999;
+  color: #F1F1F1;
+}
+
+.select {
+  padding: 6px 8px 6px 8px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.placeholder {
+  color: #BBBBBB;
+}
+
+.dropdownCaret {
+  padding: 5px 8px 5px 8px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.dropdownCaret img {
+  height: 12px;
+}
+
+.disabled {
+  background-color: #F1F1F1;
+  color: #BBBBBB;
+}
+
+.disabled:hover {
+  background-color: #F1F1F1;
+  color: #BBBBBB;
+}
+
+.disabled img {
+  opacity: 25%;
+}
+
+/* OPTIONS */
+
+.options {
+  min-width: 200px;
+  max-width: 200px;
+  max-height: 120px;
+  width: 200px;
+
+  background: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #BBBBBB;
+  border-radius: 4px;
+
+  color: #444444;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+
+  margin-top: 8px;
+
+  overflow: auto;
+
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.options::-webkit-scrollbar {
+  border-radius: 4px;
+  width: 8px;
+}
+
+.options::-webkit-scrollbar-track {
+  box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.15);
+}
+ 
+.options::-webkit-scrollbar-thumb {
+  background-color: #BBBBBB;
+  border-radius: 4px;
+}
+
+.option {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  padding: 6px 8px 6px 8px;
+}
+
+.option:hover {
+  background-color: #999999;
+  color: #F1F1F1;
+}
+
+.selected {
+  background-color: #20556B;
+  color: #F1F1F1;
+}
