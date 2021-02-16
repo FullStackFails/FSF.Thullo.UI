@@ -45,6 +45,16 @@ export async function redirectCallBack() {
 });
 }
 
+export async function getUserAccessToken() {
+  const user = await userManager.getUser();
+  const accessToken = user.access_token;
+  console.log(accessToken);
+  
+  if (!accessToken) return '';
+
+  return accessToken;
+}
+
 // function api() {
 //   mgr.getUser().then(function (user) {
 //       var url = "https://localhost:44355/api/identity";
