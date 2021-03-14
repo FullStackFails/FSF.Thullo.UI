@@ -10,6 +10,8 @@ import Logout from './authorization/logout'
 
 import Button from './fsfComponents/button/Button';
 
+import { getBoards } from './api/thulloApi';
+
 import {
   BrowserRouter as Router,
   Switch,
