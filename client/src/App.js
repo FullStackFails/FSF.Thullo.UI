@@ -8,10 +8,8 @@ import Callback from "./authorization/callback";
 import Login from "./authorization/login";
 import Logout from "./authorization/logout";
 
-import { Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-
-import logo from "./logo.svg";
+import Header from "./components/header/Header";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -28,14 +26,12 @@ const SecuredRoutes = () => {
 const UnsecuredLinks = () => {
   return (
     <>
-      <Col className="d-flex justify-content-end align-items-center">
-        <Link to="/login">
-          <Button variant="primary">Login</Button>
-        </Link>
-        <Link to="/">
-          <Button variant="outline-primary">Register</Button>
-        </Link>
-      </Col>
+      <Link to="/login">
+        <Button variant="primary">Login</Button>
+      </Link>
+      <Link to="/">
+        <Button variant="outline-primary">Register</Button>
+      </Link>
     </>
   );
 };
@@ -43,11 +39,9 @@ const UnsecuredLinks = () => {
 const SecuredLinks = ({ history }) => {
   return (
     <>
-      <Col className="d-flex justify-content-end align-items-center">
-        <Link to="/logout">
-          <Button variant="outline-primary">Logout</Button>
-        </Link>
-      </Col>
+      <Link to="/logout">
+        <Button variant="outline-primary">Logout</Button>
+      </Link>
     </>
   );
 };
@@ -65,28 +59,21 @@ function App() {
 
   return (
     <Router>
-      <Row style={{ backgroundColor: "#EEEEEE" }}>
-        <Col className="d-flex align-items-center">
-          <img src={logo} alt="logo" />
-        </Col>
-
-        {isLoggedOn ? <SecuredLinks /> : <UnsecuredLinks />}
-
-        <Switch>
-          {isLoggedOn && <SecuredRoutes />}
-          <Route path="/callback">
-            <Callback />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Home actions={{ setIsLoggedOn }} />
-          </Route>
-        </Switch>
-      </Row>
-
+      <Header>{isLoggedOn ? <SecuredLinks /> : <UnsecuredLinks />}</Header>
       {/* Application Content goes here... */}
+
+      <Switch>
+        {isLoggedOn && <SecuredRoutes />}
+        <Route path="/callback">
+          <Callback />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/">
+          <Home actions={{ setIsLoggedOn }} />
+        </Route>
+      </Switch>
     </Router>
   );
 }
