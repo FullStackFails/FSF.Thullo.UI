@@ -1,6 +1,7 @@
-nav {
-  width: 10%;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 8px;
+button {
+  margin: 8px 8px 8px 0px;
+}
+
+img {
+  margin: 8px 0px 8px 8px;
 }
