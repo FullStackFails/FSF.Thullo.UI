@@ -8,41 +8,15 @@ import Callback from "./authorization/callback";
 import Login from "./authorization/login";
 import Logout from "./authorization/logout";
 
-import Button from "react-bootstrap/Button";
 import Header from "./components/header/Header";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const SecuredRoutes = () => {
   return (
-    <>
-      <Route path="/logout">
-        <Logout />
-      </Route>
-    </>
-  );
-};
-
-const UnsecuredLinks = () => {
-  return (
-    <>
-      <Link to="/login">
-        <Button variant="primary">Login</Button>
-      </Link>
-      <Link to="/">
-        <Button variant="outline-primary">Register</Button>
-      </Link>
-    </>
-  );
-};
-
-const SecuredLinks = ({ history }) => {
-  return (
-    <>
-      <Link to="/logout">
-        <Button variant="outline-primary">Logout</Button>
-      </Link>
-    </>
+    <Route path="/logout">
+      <Logout />
+    </Route>
   );
 };
 
@@ -59,7 +33,7 @@ function App() {
 
   return (
     <Router>
-      <Header>{isLoggedOn ? <SecuredLinks /> : <UnsecuredLinks />}</Header>
+      <Header isAuthorized={isLoggedOn} />
       {/* Application Content goes here... */}
 
       <Switch>
