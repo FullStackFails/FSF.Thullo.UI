@@ -7,6 +7,7 @@ import Home from "./views/home";
 import Callback from "./authorization/callback";
 import Login from "./authorization/login";
 import Logout from "./authorization/logout";
+import MyBoards from "./views/myBoards/myBoards";
 
 import Header from "./components/header/Header";
 
@@ -14,9 +15,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const SecuredRoutes = () => {
   return (
-    <Route path="/logout">
-      <Logout />
-    </Route>
+    <>
+      <Route path="/logout">
+        <Logout />
+      </Route>
+      <Route path="/myboards">
+        <MyBoards />
+      </Route>
+    </>
   );
 };
 

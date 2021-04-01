@@ -1,11 +1,16 @@
-button {
+.button {
   margin: 8px 8px 8px 0px;
 }
 
-img {
+.image {
   margin: 8px 0px 8px 8px;
 }
 
 .header {
   background-color: #eeeeee;
+  margin-bottom: 40px;
+}
+
+.link {
+  padding-right: 8px;
 }

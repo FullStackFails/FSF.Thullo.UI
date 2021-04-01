@@ -1,8 +1,8 @@
-const client = require('./client');
-const { getUserAccessToken } = require('../authorization/authService');
+const client = require("./client");
+const { getUserAccessToken } = require("../authorization/authService");
 
 // BASE
-const BASE_URL = 'https://localhost:44355/api';
+const BASE_URL = "https://localhost:44355/api";
 
 // BOARDS
 const GET_BOARDS = `${BASE_URL}/boards`;
@@ -13,19 +13,21 @@ const createThulloConfig = async () => {
 
   const config = {
     headers: {
-      Authorization: 'Bearer ' + token
-    }
+      Authorization: "Bearer " + token,
+    },
   };
 
   return config;
-}
+};
 
 export async function getBoards() {
   const config = await createThulloConfig();
-  return await client.get(GET_BOARDS, {}, config);
+  let response = await client.get(GET_BOARDS, {}, config);
+  return response.data;
 }
 
 export async function getBoard(boardId) {
   const config = await createThulloConfig();
-  client.get(GET_BOARD, { boardId }, config);
+  let response = client.get(GET_BOARD, { boardId }, config);
+  return response.data;
 }
