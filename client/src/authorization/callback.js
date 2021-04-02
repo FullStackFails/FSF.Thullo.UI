@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import {redirectCallBack, isUserLoggedIn} from './authService';
-import {Redirect} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { redirectCallBack, isUserLoggedIn } from "./authService";
+import { Redirect } from "react-router-dom";
 
 const Callback = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     async function getUserfromUrl() {
-
       let response = await isUserLoggedIn();
       setIsLoggedIn(response);
 
@@ -17,16 +16,11 @@ const Callback = () => {
       }
     }
     getUserfromUrl();
-  }, [])
+  }, []);
 
-  if (isLoggedIn)
-    return <Redirect to="/" />;
+  if (isLoggedIn) return <Redirect to="/myBoards" />;
 
-  return (
-      <>
-        <h2>Loading credentials...</h2>
-      </>
-  )
-}
+  return <></>;
+};
 
 export default Callback;

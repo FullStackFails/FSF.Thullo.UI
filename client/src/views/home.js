@@ -1,23 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
-import {isUserLoggedIn} from '../authorization/authService';
+import React, { useEffect } from "react";
+import { isUserLoggedIn } from "../authorization/authService";
 
-const Home = ({actions}) => {
-  const [isLoggedOn, setIsLoggedOn] = useState(false);
-
+const Home = ({ actions }) => {
   useEffect(() => {
     async function isLoggedIn() {
       let response = await isUserLoggedIn();
-      setIsLoggedOn(response);
       actions.setIsLoggedOn(response);
     }
     isLoggedIn();
-  }, [])
+  }, [actions]);
 
-  return (
-    <div>
-    </div>
-  );
-}
+  return <div></div>;
+};
 
 export default Home;

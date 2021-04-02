@@ -1,31 +1,45 @@
 import React, { useState, useEffect } from "react";
 
+// Bootstrap
 import { Row, Col } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 
+// Custom
+import AddBoardModal from "../../components/addBoardModal/AddBoardModal";
+
+//Resources
 import styles from "./myBoards.module.css";
 import boardImage from "../../images/board_default_image.jpg";
 
+//API
 import { getBoards } from "../../api/thulloApi";
 
 const MyBoards = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [boards, setBoards] = useState([]);
+  const [isAddBoardModalOpen, setIsAddBoardModalOpen] = useState(false);
 
-  useEffect(async () => {
-    let response = await getBoards();
-    setBoards(response);
-    setIsLoading(false);
-  }, []);
+  useEffect(() => {
+    async function getData() {
+      let response = await getBoards();
+      setBoards(response);
+      setIsLoading(false);
+    }
+    if (!isAddBoardModalOpen) {
+      getData();
+    }
+  }, [isAddBoardModalOpen]);
 
   return (
     <>
       {/* Display Add Board Button */}
       <Row className={styles.row}>
         <Col className="d-flex justify-content-end">
-          <Button>Add Board</Button>
+          <Button onClick={() => setIsAddBoardModalOpen(true)}>
+            Add Board
+          </Button>
         </Col>
       </Row>
       {/* Display Board Cards */}
@@ -49,6 +63,11 @@ const MyBoards = () => {
           ))
         )}
       </Row>
+
+      <AddBoardModal
+        show={isAddBoardModalOpen}
+        handleClose={() => setIsAddBoardModalOpen(false)}
+      />
     </>
   );
 };
