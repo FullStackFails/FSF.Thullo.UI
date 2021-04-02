@@ -43,7 +43,6 @@ export async function redirectCallBack() {
         window.document.title,
         window.location.origin + window.location.pathname
       );
-      // window.location = "";
       return true;
     })
     .catch(function (e) {
@@ -54,23 +53,8 @@ export async function redirectCallBack() {
 export async function getUserAccessToken() {
   const user = await userManager.getUser();
   const accessToken = user.access_token;
-  console.log(accessToken);
 
   if (!accessToken) return "";
 
   return accessToken;
 }
-
-// function api() {
-//   mgr.getUser().then(function (user) {
-//       var url = "https://localhost:44355/api/identity";
-
-//       var xhr = new XMLHttpRequest();
-//       xhr.open("GET", url);
-//       xhr.onload = function () {
-//           log(xhr.status, JSON.parse(xhr.responseText));
-//       }
-//       xhr.setRequestHeader("Authorization", "Bearer " + user.access_token);
-//       xhr.send();
-//   });
-// }
